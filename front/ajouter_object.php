@@ -63,14 +63,14 @@
 
 <!--formulaire-->
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <label for="nom">Nom :</label>
-        <input type="text" name="nom" required><br>
+        <label for="Nom">Nom :</label>
+        <input type="text" name="Nom" required><br>
 
-        <label for="marque">Marque :</label>
-        <input type="text" name="marque" required><br>
+        <label for="Marque">Marque :</label>
+        <input type="text" name="Marque" required><br>
 
-        <label for="quantite">Quantité :</label>
-        <input type="number" name="quantite" required><br>
+        <label for="Quantite">Quantité :</label>
+        <input type="number" name="Quantite" required><br>
 
         <input type="submit" value="Créer la table et ajouter un enregistrement">
     </form>
