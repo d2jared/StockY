@@ -16,6 +16,7 @@
       $nom = $_POST["Nom"];
       $marque = $_POST["Marque"];
       $quantite = $_POST["Quantite"];
+      $prix = $_POST["Prix"];
 
       // Connexion à la base de données (modifier ces informations selon votre configuration)
       $servername = "localhost";
@@ -36,8 +37,9 @@
           id INT AUTO_INCREMENT PRIMARY KEY,
           nom VARCHAR(255) NOT NULL,
           marque VARCHAR(255) NOT NULL,
-          quantite INT
-      )";
+          quantite INT,
+          prix INT
+          );";
 
       if ($conn->query($sql) === TRUE) {
           echo "Table 'item' créée avec succès.";
@@ -46,7 +48,7 @@
       }
 
       // Insérer les données dans la table
-      $sql = "INSERT INTO item (nom, marque, quantite) VALUES ('$nom', '$marque', $quantite)";
+      $sql = "INSERT INTO item (nom, marque, quantite, prix) VALUES ('$nom', '$marque', $quantite, $prix);";
 
       if ($conn->query($sql) === TRUE) {
           echo "Nouvel enregistrement ajouté avec succès.";
@@ -71,6 +73,9 @@
 
         <label for="Quantite">Quantité :</label>
         <input type="number" name="Quantite" required><br>
+
+        <label for="Prix">Prix :</label>
+        <input type="number" name="Prix" required><br>
 
         <input type="submit" value="Créer la table et ajouter un enregistrement">
     </form>
