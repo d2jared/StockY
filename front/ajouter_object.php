@@ -14,7 +14,6 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Récupérer les données du formulaire
       $nom = $_POST["Nom"];
-      $marque = $_POST["Marque"];
       $quantite = $_POST["Quantite"];
       $prix = $_POST["Prix"];
 
@@ -36,7 +35,6 @@
       $sql = "CREATE TABLE IF NOT EXISTS item (
           id INT AUTO_INCREMENT PRIMARY KEY,
           nom VARCHAR(255) NOT NULL,
-          marque VARCHAR(255) NOT NULL,
           quantite INT,
           prix INT
           );";
@@ -48,7 +46,7 @@
       }
 
       // Insérer les données dans la table
-      $sql = "INSERT INTO item (nom, marque, quantite, prix) VALUES ('$nom', '$marque', $quantite, $prix);";
+      $sql = "INSERT INTO item (nom, quantite, prix) VALUES ('$nom', $quantite, $prix);";
 
       if ($conn->query($sql) === TRUE) {
           echo "Nouvel enregistrement ajouté avec succès.";
@@ -67,9 +65,6 @@
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <label for="Nom">Nom :</label>
         <input type="text" name="Nom" required><br>
-
-        <label for="Marque">Marque :</label>
-        <input type="text" name="Marque" required><br>
 
         <label for="Quantite">Quantité :</label>
         <input type="number" name="Quantite" required><br>

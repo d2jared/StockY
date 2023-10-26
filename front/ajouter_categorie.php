@@ -60,9 +60,13 @@
 
 <!--formulaire-->
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <label for="Nom">Nom :</label>
-        <input type="text" name="Nom" required><br>
+        <input type="select">
+            <nom type string>catégorie</nom>
+            <libellé>sélectionner une cétégorie</libellé>
+            <option></option>
 
+            
+        </input>
         <input type="submit" value="Créer la table et ajouter un enregistrement">
     </form>
 
