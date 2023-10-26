@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StockY - Ajouter une catégorie</title>
-    <link rel="stylesheet" href="ajouter_categorie.css">
+    <title>StockY - Ajouter</title>
+    <link rel="stylesheet" href="ajouter_object.css">
 </head>
 <body>
-
-    <h1>Ajouter une catégorie</h1>
+    <h1>Ajouter une marque</h1>
 
     <?php
     // Vérifier si le formulaire a été soumis
@@ -31,19 +30,19 @@
       }
 
       // Créer la table "item" si elle n'existe pas
-      $sql = "CREATE TABLE IF NOT EXISTS categorie (
+      $sql = "CREATE TABLE IF NOT EXISTS marque (
           id INT AUTO_INCREMENT PRIMARY KEY,
           nom VARCHAR(255) NOT NULL,
           );";
 
       if ($conn->query($sql) === TRUE) {
-          echo "Table 'categorie' créée avec succès.";
+          echo "Table 'marque' créée avec succès.";
       } else {
           echo "Erreur lors de la création de la table : " . $conn->error;
       }
 
       // Insérer les données dans la table
-      $sql = "INSERT INTO categorie (nom) VALUES ('$nom');";
+      $sql = "INSERT INTO marque (nom) VALUES ('$nom');";
 
       if ($conn->query($sql) === TRUE) {
           echo "Nouvel enregistrement ajouté avec succès.";
@@ -65,6 +64,6 @@
 
         <input type="submit" value="Créer la table et ajouter un enregistrement">
     </form>
-
+    
 </body>
 </html>
