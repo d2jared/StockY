@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= stylesheet href="liste.css">
     <title>StockY - Liste</title>
 </head>
 <body>
     <?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "stocky";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
     // ...
 
     // Code pour la connexion à la base de données et l'insertion de données (comme dans votre code existant)
@@ -15,19 +22,13 @@
     $sql = "SELECT * FROM item";
     $result = $conn->query($sql);
 
-    if (!$result) {
-        die("Erreur dans la requête : " . $conn->error);
-    }
-    ?>
-
-<?php
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>" . $row['id'] . "</td>";
-            echo "<td>" . $row['nom'] . "</td>";
-            echo "<td>" . $row['marque'] . "</td>";
-            echo "<td>" . $row['quantite'] . "</td>";
-            echo "<td>" . $row['prix'] . "</td>";
+            echo "<td><br /><br /> id : " . $row['id'] . "<br /></td>";
+            echo "<td> Nom :" . $row['nom'] . "<br /></td>";
+            echo "<td> Marque :" . $row['marque'] . "<br /></td>";
+            echo "<td> quantite :" . $row['quantite'] . "<br /></td>";
+            echo "<td> prix :" . $row['prix'] . "</td>";
             echo "</tr>";
         }
         ?>
