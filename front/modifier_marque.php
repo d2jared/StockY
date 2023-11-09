@@ -5,9 +5,9 @@ $username = "root";
 $password = "";
 $dbname = "stockydeux";
 
-// Vérification que l'ID de l'objet est présent dans l'URL
+// Vérification que l'ID de la marque est présent dans l'URL
 if (!isset($_GET['id']) || empty($_GET['id'])) {
-    echo "Identifiant de l'objet non spécifié.";
+    echo "Identifiant de la marque non spécifié.";
     exit;
 }
 
@@ -18,17 +18,17 @@ if ($conn->connect_error) {
     die("La connexion a échoué : " . $conn->connect_error);
 }
 
-// Récupération de l'ID de l'objet à modifier depuis l'URL
-$objectId = $_GET['id'];
+// Récupération de l'ID de la marque à modifier depuis l'URL
+$marqueId = $_GET['id'];
 
-// Sélection des informations de l'objet à modifier
-$sql = "SELECT * FROM item WHERE id = $objectId";
+// Sélection des informations de la marque à modifier
+$sql = "SELECT * FROM marque WHERE id_marque = $marqueId";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 } else {
-    echo "Aucun objet trouvé avec cet identifiant.";
+    echo "Aucune marque trouvée avec cet identifiant.";
     exit;
 }
 
@@ -36,18 +36,16 @@ if ($result->num_rows > 0) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupération des nouvelles valeurs du formulaire
     $nouveauNom = $_POST['nouveau_nom'];
-    $nouvelleQuantite = $_POST['nouvelle_quantite'];
-    $nouveauPrix = $_POST['nouveau_prix'];
 
     // Mise à jour des valeurs dans la base de données
-    $sqlUpdate = "UPDATE item SET nom = '$nouveauNom', quantite = $nouvelleQuantite, prix = $nouveauPrix WHERE id = $objectId";
+    $sqlUpdate = "UPDATE marque SET nom_marque = '$nouveauNom' WHERE id_marque = $marqueId";
 
     if ($conn->query($sqlUpdate) === TRUE) {
         // Redirection vers la page liste.php après la modification
-        header("Location: liste.php");
+        header("Location: afficher_marque.php");
         exit;
     } else {
-        echo "Erreur lors de la mise à jour de l'objet : " . $conn->error;
+        echo "Erreur lors de la mise à jour de la marque : " . $conn->error;
     }
 }
 
@@ -61,20 +59,14 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier Objet</title>
+    <title>Modifier Marque</title>
 </head>
 
 <body>
-    <h1>Modifier l'Objet</h1>
+    <h1>Modifier la Marque</h1>
     <form method="post" action="">
         <label for="nouveau_nom">Nouveau Nom :</label>
-        <input type="text" name="nouveau_nom" value="<?php echo $row['nom']; ?>"><br><br>
-
-        <label for="nouvelle_quantite">Nouvelle Quantité :</label>
-        <input type="number" name="nouvelle_quantite" min="0" value="<?php echo $row['quantite']; ?>"><br><br>
-
-        <label for="nouveau_prix">Nouveau Prix Unitaire :</label>
-        <input type="number" step="0.01" min="0.01" name="nouveau_prix" value="<?php echo $row['prix']; ?>"><br><br>
+        <input type="text" name="nouveau_nom" value="<?php echo $row['nom_marque']; ?>"><br><br>
 
         <input type="submit" value="Mettre à jour">
     </form>

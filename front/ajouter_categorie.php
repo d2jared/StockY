@@ -51,7 +51,7 @@
         <label for="Nom">Nom :</label>
         <input type="text" name="Nom" required><br>
 
-        <input type="submit" value="Créer la table et ajouter un enregistrement">
+        <input type="submit" value="Nouvelle Catégorie">
     </form>
 
     <br />

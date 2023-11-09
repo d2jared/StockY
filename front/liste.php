@@ -7,9 +7,10 @@
     <title>StockY - Liste</title>
 </head>
 <body>
-    <button><a href="ajouter_object.php">Ajouter un objet</a></button>
-    <button><a href="ajouter_marque.php">Ajouter une marque</a></button>
-    <button><a href="ajouter_categorie.php">Ajouter une catégorie</a></button>
+
+    <button><a href="ajouter_object.php">Ajouter un Objet</a></button>
+    <button><a href="afficher_marque.php">Afficher les Marques</a></button>
+    <button><a href="afficher_categorie.php">Afficher les Catégories</a></button>
     <?php
 
     $servername = "localhost";
@@ -25,7 +26,7 @@
     FROM item
     INNER JOIN marque ON item.id_marque = marque.id_marque
     INNER JOIN categorie ON item.id_categorie = categorie.id_categorie
-    ORDER BY prix ASC";
+    ORDER BY nom ASC";
     
     $result = $conn->query($sql);
 
@@ -38,7 +39,7 @@
         echo "Marque : " . $row['nom_marque'] . "<br>";
         echo "Catégorie : " . $row['nom_categorie'] . "<br>";
         echo "Quantité : " . $row['quantite'] . "<br>";
-        echo "Prix : " . $row['prix'] . " €<br>";
+        echo "Prix Unitaire : " . $row['prix'] . " €<br>";
         echo "<br />";
         echo "<button class='btn-modif' data-id=" .$row['id'] ."'>Modifier</button>";
         echo "<button class='btn-delete' data-id=" .$row['id'] ."'>Supprimer</button>";
