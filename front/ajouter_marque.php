@@ -44,7 +44,7 @@
         <label for="Nom">Nom :</label>
         <input type="varchar(255)" name="Nom" required><br>
 
-        <input type="submit" value="Créer la table et ajouter un enregistrement">
+        <input type="submit" value="Nouvelle marque">
     </form>
 
     <br />
