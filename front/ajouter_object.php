@@ -28,7 +28,7 @@
         $result = $conn->query($sql);
 
         echo "<select name='nom_marque' id='nom_marque'>";
-        echo "<option value='defaut'>Choisissez la marque</option>";
+        echo "<option value='defaut'>Choisissez la Marque</option>";
         while ($row = $result->fetch_assoc()) {
             echo "<option value='" . $row['nom_marque'] . "'>" . $row['nom_marque'] . "</option>";
         }
@@ -37,10 +37,10 @@
         ?>
     
             <label for="quantite">Quantité :</label>
-            <input type="number" name="quantite" required><br>
-    
-            <label for="prix">Prix :</label>
-            <input type="number" name="prix" required><br>
+            <input type="number" name="quantite" min="0" required><br>
+
+            <label for="prix">Prix Unitaire :</label>
+            <input type="number" step="0.01" name="prix" min="0.01" required><br> 
 
             <label for="nom_categorie">Catégorie :</label>
             <?php
@@ -49,7 +49,7 @@
             $result = $conn->query($sql);
 
             echo "<select name='nom_categorie' id='nom_categorie'>";
-            echo "<option value='defaut'>Choisissez la categorie</option>";
+            echo "<option value='defaut'>Choisissez la Categorie</option>";
             while ($row = $result->fetch_assoc()) {
                 echo "<option value='" . $row['nom_categorie'] . "'>" . $row['nom_categorie'] . "</option>";
             }
@@ -58,7 +58,7 @@
         ?>
             
     
-            <input type="submit" value="ajouter un enregistrement">
+            <input type="submit" value="Ajouter un Enregistrement">
         </form>
 
         <br />
