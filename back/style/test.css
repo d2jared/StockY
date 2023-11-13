@@ -1,0 +1,26 @@
+#slider-round {
+    height: 10px;
+}
+
+#slider-round .noUi-connect {
+    background: linear-gradient(45deg, #ff0099, #7a0ed6);
+}
+
+#slider-round .noUi-handle {
+    height: 18px;
+    width: 18px;
+    top: -5px;
+    right: -9px; /* half the width */
+    border-radius: 9px;
+}
+
+.slider-styled,
+.slider-styled .noUi-handle {
+    box-shadow: none;
+}
+
+/* Hide markers on slider handles */
+.slider-styled .noUi-handle::before,
+.slider-styled .noUi-handle::after {
+    display: none;
+}

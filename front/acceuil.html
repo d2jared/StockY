@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StockY - Acceuil</title>
-    <link rel="stylesheet" href="acceuil.css">
+    <link rel="stylesheet" href="../back/style/acceuil.css">
 </head>
+
 <body>
+
+    <div class="circles">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+    </div>
+
     <div class="bg"></div>
 
     <div class="star-field">
-    <div class="layer"></div>
-    <div class="layer"></div>
-    <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
 
-    <div class="content">
-        <h1>Bienvenue sur <br />StockYyyy</h1>
+        <div class="content">
+            <h1>Bienvenue sur <br />StockYyyy</h1>
+        </div>
+
+        <button class="enter">Entrer</button>
+
     </div>
-
-    <button><a href="liste.php">Entrer</a></button>
 </body>
+
+        <script>
+            document.querySelector(".enter").addEventListener("click", function () {
+                // Redirigez vers le script PHP pour effectuer l'ajout
+                window.location.href = `liste.php`;
+            });
+        </script>
 </html>

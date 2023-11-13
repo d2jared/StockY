@@ -1,0 +1,76 @@
+<!-- Inclure le fichier CSS de noUiSlider -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css" integrity="sha512-Ft4c94Wk2Imt2bWGBGQznDZQr2T3d+bnCb4kWY9Jt0AkJB6FTY9hOTArYv2jN3cBeZH15wNoZ2YHAI0Mxt+KUw==" crossorigin="anonymous" />
+
+<!-- Inclure le fichier JavaScript de noUiSlider -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Range Slider - Min/Max</title>
+        <link href="../node_modules/nouislider/dist/nouislider.css" rel="stylesheet">
+        <script src="../node_modules/nouislider/dist/nouislider.js"></script>
+        <link href="../back/style/test.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    #rangeSlider {
+      width: 300px;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Choisissez une plage de valeurs</h2>
+
+  <div class="slider-round" id="slider"></div>
+  <label for="valeurMin">Valeur minimale:</label>
+  <input type="number" value="0" id="valeurMin"/>
+  <label for="valeurMax">Valeur maximale:</label>
+  <input type="number" value="250" id="valeurMax"/>
+
+  <script>
+    var slider = document.getElementById('slider');
+    var valeurMinParagraphe = document.getElementById('valeurMin');
+    var valeurMaxParagraphe = document.getElementById('valeurMax');
+
+    noUiSlider.create(slider, {
+      start: [0.01, 250],
+      connect: true,
+      range: {
+        'min': 0.01,
+        'max': 1000
+      }
+    });
+
+
+
+    slider.noUiSlider.on('update', function (values, handle) {
+
+        var value = values[handle];
+      if (handle) {
+        valeurMaxParagraphe.value = value;
+      } else {
+        valeurMinParagraphe.value = value;
+      }
+    });
+
+    valeurMinParagraphe.addEventListener('change', function () {
+      slider.noUiSlider.set([this.value, null]);
+    });
+
+    valeurMaxParagraphe.addEventListener('change', function () {
+      slider.noUiSlider.set([null, this.value]);
+    });
+  </script>
+
+
+
+</body>
+</html>
