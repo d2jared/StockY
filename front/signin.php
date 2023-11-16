@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign-in</title>
+    <link rel="stylesheet" href="../back/style/edit.css">
+    <title>Stocky - Sign-in</title>
 </head>
 <body>
-    <h1>Inscription</h1>
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <div class="circles">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+    </div>
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="edit">
+        <h1>Inscription</h1>
         <label for="pseudo">Pseudo :</label>
         <input type="text" name="pseudo" required><br>
 
         <label for="password">Mot de passe :</label>
         <input type="password" name="password" required><br>
 
-        <input type="submit" value="s'inscrire">
+        <button type="submit">S'inscrire</button>
         <br />
-        <button><a href="login.php">Se connecter</a></button>
+        <button class="btn-login">Se connecter</button>
+
+    </form>
 
         <!-- Vérifier si le formulaire a été soumis -->
         <?php
@@ -58,5 +65,12 @@
         }
 
         ?>
+
+    <script>
+        document.querySelector(".btn-login").addEventListener("click", function() {
+            // Redirigez vers le script PHP de login
+            window.location.href = `login.php`;
+        });
+    </script>
 </body>
 </html>
