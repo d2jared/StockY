@@ -16,3 +16,9 @@ Que vous dirigiez une petite entreprise ou une grande entreprise, Stocky vous of
 
 **Lancer le Site**: Lancer le fichier `front/acceuil.html`
 
+## Contribuer
+
+Stocky est un projet open source, et nous accueillons toute contribution. Si vous souhaitez suggérer des améliorations, signaler des problèmes ou contribuer directement au code, veuillez consulter notre guide de contribution.
+
+Merci de choisir Stocky pour votre gestion de stock !
+
